@@ -15,6 +15,7 @@ export interface CardEntity {
 export interface CommentEntity {
     _id?: string
     comment: string
+    avatar?: string
     createdBy: string
     createdAt?: string
     updatedAt?: string

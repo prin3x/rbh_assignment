@@ -36,6 +36,9 @@ export class Comment {
   comment: string;
 
   @Prop()
+  avatar: string;
+
+  @Prop()
   createdBy: string;
 
   @Prop()

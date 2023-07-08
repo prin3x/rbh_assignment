@@ -6,6 +6,8 @@ import {
   updateCardStatus,
 } from "../functions/cards.func";
 import { useNavigate, useParams } from "react-router-dom";
+import { convertDate } from "../functions/date.util";
+import Comments from "../components/Comments";
 
 const CardDetails = () => {
   const [isloading, setIsLoading] = useState<boolean>(true);
@@ -46,6 +48,8 @@ const CardDetails = () => {
       const commentSet: CommentEntity = {
         comment: inputValue,
         createdBy: "Smith Paul",
+        createdAt: new Date() as any,
+        avatar: 'https://i.imgur.com/3g7nmJC.png',
       };
       await commentCard(id, commentSet);
       setInputValue("");
@@ -105,10 +109,14 @@ const CardDetails = () => {
 
           <div className="w-[30%] ml-auto">
             <h2>Details</h2>
-            <p className="text-gray-600 text-sm">สร้างโดย {card.createdBy}</p>
-            <p className="text-gray-600 text-sm">สร้างเมื่อ {card.createdAt}</p>
+            <p className="text-gray-600 text-sm mt-3">
+              สร้างโดย {card.createdBy}
+            </p>
+            <p className="text-gray-600 text-sm mt-3">
+              สร้างเมื่อ {convertDate(card.createdAt)}
+            </p>
 
-            <div>
+            <div className=" mt-3">
               <label htmlFor="status" className="text-gray-700 font-medium">
                 Status:
               </label>
@@ -125,7 +133,7 @@ const CardDetails = () => {
 
               <div className="mt-4">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 focus:outline-none focus:shadow-outline"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="submit"
                   onClick={archiveCard}
                 >
@@ -166,16 +174,7 @@ const CardDetails = () => {
         </div>
         {card.comments.length > 0 &&
           card.comments.map((_comment, index) => (
-            <div key={index} className="bg-purple-100 hover:bg-purple-200 rounded-lg shadow-lg p-4 transition-colors duration-300 mt-5">
-              <p className="text-gray-700 mb-4">Comment {index + 1}</p>
-              <p className="text-gray-700 mb-4">{_comment.comment}</p>
-              <p className="text-gray-600 text-sm">
-                Created by {_comment.createdBy}
-              </p>
-              <p className="text-gray-600 text-sm">
-                Created on {_comment.createdAt}
-              </p>
-            </div>
+            <Comments key={index} comment={_comment} />
           ))}
       </div>
     )

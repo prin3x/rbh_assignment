@@ -1,22 +1,48 @@
-# MAQE Frontend
+# CRUD Web Application Demo for RBH
 
-## Installation
+This is a demo project that demonstrates CRUD (Create, Read, Update, Delete) operations. The frontend of the application is built using React.js with Vite, while the backend is built using Nest.js. PostgreSQL is used as the database. You can use the provided `docker-compose.yml` file at the root of the project to initialize and run the project easily.
 
-```bash
-    npm install
-```
+## Prerequisites
+
+Before getting started, make sure you have the following tools installed on your machine:
+
+- Docker: [Install Docker](https://docs.docker.com/get-docker/)
+- Docker Compose: [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+## Getting Started
+
+To set up and run the project, follow these steps:
+
+1. Clone the Git repository:
+
+   ```shell
+   git clone https://github.com/prin3x/rbh_assignment
+   ```
+
+2. Navigate to the project directory:
+    ```shell
+   cd rbh_assignment
+    ```
+
+3. Build and run the project using Docker Compose:
+    ```shell
+    docker-compose up --build
+    ```
+4. Once the containers are up and running, you can access the application in your browser at http://localhost:5173/
+
 
 ## Usage
+The application provides a user interface to perform CRUD operations on the data stored in the PostgreSQL database. Use the UI to create, read, update, and delete data entries.
 
-1. Open the index.html file in a web browser.
 
-2. The HTML page will fetch data from the JSONPlaceholder API's /posts endpoint using the fetch function.
+## Contributing
 
-3. The Handlebars template in the HTML file will be populated with the API response data, specifically the post titles and authors.
+Contributions are welcome! If you find any issues or want to enhance the project, feel free to submit a pull request.
 
-4. The rendered content will be displayed as a list within the <ul id="output"></ul> element.
+## License
+This project is licensed under the MIT License.
 
-## Dependencies
 
-Handlebars.js (v4.0.12): https://handlebarsjs.com/
-# rbh_assignment
+Feel free to modify the content to fit your project's specific requirements and preferences.
+
+
